@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import TodoList from './pages/TodoList';
-
-ReactDOM.render(<TodoList />, document.getElementById('root'));
+import {Provider} from 'mobx-react';
+import store from './models/TodoList'
+ReactDOM.render(
+<Provider store={store}>
+   <TodoList />
+</Provider>
+, document.getElementById('root'));
 
