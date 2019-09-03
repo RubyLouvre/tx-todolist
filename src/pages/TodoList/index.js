@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.css";
+import TodoItem from "../../components/TodoItem"
 class TodoList extends React.Component {
     constructor(props) {
         super(props);
@@ -46,34 +47,11 @@ class TodoList extends React.Component {
                 <section>
                     <ul className="todos">
                         {this.state.todos.map(todo => {
-                            return (
-                                <li
-                                    key={todo.id}
-                                    className={
-                                        todo.finished
-                                            ? "finished item"
-                                            : "todo item"
-                                    }
-                                >
-                                    <input
-                                        onChange={this.updateTodo.bind(
-                                            this,
-                                            todo
-                                        )}
-                                        checked={todo.finished}
-                                        type="checkbox"
-                                    />
-                                    {todo.title}
-                                    <span
-                                        className="del-button"
-                                        onClick={this.deleteTodo.bind(
-                                            this,
-                                            todo
-                                        )}
-                                    >
-                                        删除
-                                    </span>
-                                </li>
+                            return (<TodoItem todo={todo}
+                                key={todo.id}
+                                deleteTodo={this.deleteTodo.bind(this, todo)}
+                                updateTodo={this.updateTodo.bind(this, todo)}
+                                ></TodoItem>
                             );
                         })}
                     </ul>

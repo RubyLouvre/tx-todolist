@@ -1,0 +1,20 @@
+.item  {
+    padding: 20px;
+    background: yellowgreen;
+    border:1px solid goldenrod;
+    margin-top: -1px;
+}
+.item .del-button {
+    float: right;
+    margin-right: 20px;
+    visibility: hidden;
+    color:gray;
+    cursor: pointer;
+ }
+ .item.finished {
+     background: yellow;
+    text-decoration:line-through;
+ }
+ .item:hover .del-button {
+    visibility: visible;
+ }
