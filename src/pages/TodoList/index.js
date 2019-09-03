@@ -19,17 +19,13 @@ class TodoList extends React.Component {
                 <section>
                     <ul className="todos">
                         {this.props.todos.map(todo => {
-                            return (<TodoItem 
-                                todo={todo}
-                                key={todo.id}
-                                ></TodoItem>
+                            return (<TodoItem  todo={todo} key={todo.id} />
                             );
                         })}
                     </ul>
                     <details>
                         <summary>
-                            {this.props.finishedCount}已完成/
-                            {this.props.todos.length}总数
+                            {this.props.finishedCount}已完成/{this.props.todos.length}总数
                         </summary>
                     </details>
                 </section>
