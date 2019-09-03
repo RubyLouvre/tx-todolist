@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 import TodoItem from "../../components/TodoItem"
+import TodoForm from "../../components/TodoForm"
 class TodoList extends React.Component {
     constructor(props) {
         super(props);
@@ -9,8 +10,13 @@ class TodoList extends React.Component {
             finishedCount: 0
         };
     }
+    textareaRef = (dom)=>{
+        if(dom){
+            this.textarea = dom
+        }
+    }
     addTodo(e) {
-        var dom = this.refs.textarea;
+        var dom = this.textarea;
         var value = dom.value;
 
         if (value) {
@@ -63,18 +69,8 @@ class TodoList extends React.Component {
                     </details>
                 </section>
                 <footer>
-                    <form className="create" onSubmit={this.addTodo.bind(this)}>
-                        <p className="input">
-                            <span className="hint">任务：</span>
-                            <textarea
-                                ref="textarea"
-                                placeholder="添加新任务吧。。。"
-                            ></textarea>
-                        </p>
-                        <p>
-                            <button type="submit">创建</button>
-                        </p>
-                    </form>
+                  <TodoForm textareaRef={this.textareaRef} addTodo={this.addTodo.bind(this)}>
+                  </TodoForm>
                 </footer>
             </main>
         );
