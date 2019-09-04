@@ -18,3 +18,22 @@
  .item:hover .del-button {
     visibility: visible;
  }
+
+ .create .input {
+    display: flex;
+}
+.create .input textarea{
+    margin:0px 20px;
+    flex-grow: 1;
+}
+.create .hint {
+    vertical-align: top;
+}
+.create button {
+    float: right;
+    background: skyblue;
+    padding: 10px;
+    color:white;
+    font-size: 20px;
+}
+
